@@ -1,0 +1,12 @@
+steps:
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      # https://cloud.google.com/functions/docs/deploying/filesystem?hl=ja#deploy_using_the_gcloud_tool
+      # gcloud functions deploy NAME --runtime RUNTIME TRIGGER [FLAGS...]
+      - functions
+      - deploy
+      - hellow
+      - --entry-point=HelloHTTP
+      - --runtime=go113
+      - --source=.
+      - --trigger-http
